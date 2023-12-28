@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-
+import { Media } from '../../../../payload/payload-types'
 import { Category } from '../../../../payload/payload-types'
 import { useFilter } from '../../../_providers/Filter'
 
@@ -12,13 +12,15 @@ type CategoryCardProps = {
 }
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
-  const media = category.media as Media
+
+  const media = category.media as Media;
   const { setCategoryFilters } = useFilter()
+
   return (
     <Link
       href="/products"
       className={classes.card}
-      style={{ backgroundImage: `url(${media.url})` }}
+      style={{ backgroundImage: media ? `url(${media.url})` }}
       onClick={() => setCategoryFilters([category.id])}
     >
       <p className={classes.title}>{category.title}</p>

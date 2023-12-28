@@ -19,23 +19,27 @@ const jost = Jost({
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <InitTheme />
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      </head>
-      <body className={jost.variable}>
-        <Providers>
-          <AdminBar />
-          {/* @ts-expect-error */}
-          <Header />
-          <main className="main">{children}</main>
-          {/* @ts-expect-error */}
-          <Footer />
-        </Providers>
-      </body>
-    </html>
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <InitTheme />
+          <link rel="icon" href="/path-to-your-new-logo.ico" sizes="32x32" />
+          <link rel="icon" href="/path-to-your-new-logo.svg" type="image/svg+xml" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2"/>
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2"/>
+        </head>
+        <body className={jost.variable}>
+          <Providers>
+            <AdminBar />
+            {/* @ts-expect-error */}
+            <Header />
+            <main className="main">{children}</main>
+            {/* @ts-expect-error */}
+            <Footer />
+          </Providers>
+        </body>
+      </html>
+    </>
   )
 }
 
